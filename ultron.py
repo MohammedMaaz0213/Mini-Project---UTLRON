@@ -534,6 +534,27 @@ def taskExecution():
             res = requests.get('https://api.openweathermap.org/data/2.5/weather?lat=17.4122998&lon=78.267959&appid=94d65bb26e67c1b54dabcec6a215fdcc&=celsius')
             response = json.loads(res.text)
             speak(f"the temperature of hyderabad is { round(response['main']['temp']-273 , 2 )}")
+            
+        elif "weather report" in query:
+            res = requests.get('https://api.openweathermap.org/data/2.5/weather?lat=17.4122998&lon=78.267959&appid=94d65bb26e67c1b54dabcec6a215fdcc&=celsius')
+            response = json.loads(res.text)
+
+            temperature = response['main']['temp']-273.15
+            feels_like = response['main']['feels_like']-273.15
+            wind_speed = response['wind']['speed']
+            humidity = response['main']['humidity']
+            description=response['weather'][0]['description']
+            sunrise = datetime.datetime.utcfromtimestamp(response['sys']['sunrise'] + response['timezone'])
+            sunset = datetime.datetime.utcfromtimestamp(response['sys']['sunset'] + response['timezone'])
+            speak("Weather report of hyderabad")
+            speak(f"The temperature is {round(response['main']['temp']-273.15 , 2 )} degree celsius") 
+            speak(f"The temperature feels like {round(feels_like , 2 )} degree celsius") 
+            speak(f"The wind speedis {wind_speed} kilometer per hour ") 
+            speak(f"The humidity is {humidity} percent") 
+            speak(f"Description is {description}") 
+            speak(f"The sunrise time is {sunrise}") 
+            speak(f"The senset time is {sunset}") 
+ 
         
         elif "activate how to do mode" in query:
             from pywikihow import search_wikihow
