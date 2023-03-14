@@ -5,8 +5,9 @@ This is a Personal Assistant which is an AI model such as Google Assistant or Al
 
 This Assistant is not having as complex functionality as any other present in, but we made it so that we can understand the basic principles of Artificial Intelligence and Machine learning.
 
-
-![What is this](myimage.png)
+<p align="center">
+  <img width="460" height="300" src="AiImage.jpg">
+</p>
 
 ## Contributing
 
